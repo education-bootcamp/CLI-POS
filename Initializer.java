@@ -19,35 +19,46 @@ class Initializer {
         System.out.println("4) Exit");
     }
 
-    public static void manageCustomer(){
-        System.out.println("Custmer management");
+    public static void manageCustomer() {
+        System.out.println("Manage your Customers");
     }
-    public static void manageProduct(){
+
+    public static void manageProduct() {
         System.out.println("Product management");
     }
-    public static void manageOrder(){
+
+    public static void manageOrder() {
         System.out.println("Orders management");
     }
-    public static void exit(){
+
+    public static void exit() {
         System.out.println("Good bye!..");
     }
 
     public static void main(String[] args) {
         // start welcome note
-        while(true){
-            printWelcomeNote();
+
+        printWelcomeNote();
+
+        while (true) {
             printPrimaryQ();
 
             Scanner input = new Scanner(System.in);
             int num = input.nextInt();
 
-            switch(num) {
-                case 1: manageCustomer(); break;
-                case 2: manageProduct(); break;
-                case 3: manageOrder(); break;
-                case 4: exit();
+            switch (num) {
+                case 1:
+                    manageCustomer();
+                    break;
+                case 2:
+                    manageProduct();
+                    break;
+                case 3:
+                    manageOrder();
+                    break;
+                case 4:
+                    exit();
             }
         }
-
     }
 }
