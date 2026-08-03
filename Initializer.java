@@ -1,4 +1,5 @@
 import java.util.*;
+
 class Initializer {
 
     public static void printWelcomeNote() {
@@ -18,14 +19,35 @@ class Initializer {
         System.out.println("4) Exit");
     }
 
+    public static void manageCustomer(){
+        System.out.println("Custmer management");
+    }
+    public static void manageProduct(){
+        System.out.println("Product management");
+    }
+    public static void manageOrder(){
+        System.out.println("Orders management");
+    }
+    public static void exit(){
+        System.out.println("Good bye!..");
+    }
+
     public static void main(String[] args) {
         // start welcome note
-        printWelcomeNote();
-        printPrimaryQ();
+        while(true){
+            printWelcomeNote();
+            printPrimaryQ();
 
-        Scanner input = new Scanner(System.in);
-        int num = input.nextInt();
+            Scanner input = new Scanner(System.in);
+            int num = input.nextInt();
 
+            switch(num) {
+                case 1: manageCustomer(); break;
+                case 2: manageProduct(); break;
+                case 3: manageOrder(); break;
+                case 4: exit();
+            }
+        }
 
     }
 }
