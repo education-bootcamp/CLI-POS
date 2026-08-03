@@ -1,6 +1,15 @@
 import java.util.*;
 
 class Initializer {
+    static Scanner input = new Scanner(System.in);
+    static String[] customerQ= {
+            "1) Save Customer",
+            "2) Update Customer",
+            "3) Delete Customer",
+            "4) Search Customer",
+            "5) Back",
+            "6) Exit"
+    };
 
     public static void printWelcomeNote() {
         System.out.println("===========================");
@@ -21,6 +30,28 @@ class Initializer {
 
     public static void manageCustomer() {
         System.out.println("Manage your Customers");
+
+        while(true){
+            //------print Q------------
+            for(String temp: customerQ){
+                System.out.println(temp);
+            }
+            //------print Q------------
+
+            //input.nextLine();
+            int num = input.nextInt();
+
+            switch (num){
+                case 1: // save customer
+                case 2: // update customer
+                case 3: // delete customer
+                case 4: // search Customer
+                case 5: // back to home
+                case 6: // exit
+                default:
+                    System.out.println("Wrong input please try again");
+            }
+        }
     }
 
     public static void manageProduct() {
@@ -43,7 +74,7 @@ class Initializer {
         while (true) {
             printPrimaryQ();
 
-            Scanner input = new Scanner(System.in);
+
             int num = input.nextInt();
 
             switch (num) {
@@ -58,6 +89,8 @@ class Initializer {
                     break;
                 case 4:
                     exit();
+                default:
+                    System.out.println("Are you crazy? please insert a valid number");
             }
         }
     }
