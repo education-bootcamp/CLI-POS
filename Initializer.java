@@ -100,7 +100,6 @@ class Initializer {
         System.out.println("Manage your Customers");
 
         while (true) {
-
             System.out.println(Arrays.toString(customers));
 
             //------print Q------------
