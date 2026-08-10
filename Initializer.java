@@ -2,7 +2,7 @@ import java.util.*;
 
 class Initializer {
     static Scanner input = new Scanner(System.in);
-    static String[] customers = new int[100]; //[[null],[null],[],[],[]]
+    static String[] customers = new String[100]; //[[null],[null],[],[],[]]
     static int customerCounter=0;
 
     static String[] customerQ= {
@@ -17,6 +17,10 @@ class Initializer {
     //=========Customer management
     public static void saveCustomer(){
         System.out.println("Please Enter Customer ("+(customerCounter+1)+") Name");
+        String name = input.nextLine();
+        customers[customerCounter]=name;
+        customerCounter++;
+        System.out.println("Customer Saved : "+ name);
 
     }
     //=========Customer management
@@ -42,14 +46,19 @@ class Initializer {
         System.out.println("Manage your Customers");
 
         while(true){
+
+            System.out.println(Arrays.toString(customers));
+
             //------print Q------------
+
             for(String temp: customerQ){
                 System.out.println(temp);
             }
             //------print Q------------
 
             //input.nextLine();
-            int num = input.nextInt();
+            int num = input.nextInt(); // \n
+            input.nextLine();
 
             switch (num){
                 case 1: saveCustomer(); break;
@@ -86,6 +95,7 @@ class Initializer {
 
 
             int num = input.nextInt();
+            input.nextLine();
 
             switch (num) {
                 case 1:
