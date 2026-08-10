@@ -3,9 +3,9 @@ import java.util.*;
 class Initializer {
     static Scanner input = new Scanner(System.in);
     static String[] customers = new String[100]; //[[null],[null],[],[],[]]
-    static int customerCounter=0;
+    static int customerCounter = 0;
 
-    static String[] customerQ= {
+    static String[] customerQ = {
             "1) Save Customer",
             "2) Update Customer",
             "3) Delete Customer",
@@ -14,14 +14,36 @@ class Initializer {
             "6) Exit"
     };
 
-    //=========Customer management
-    public static void saveCustomer(){
-        System.out.println("Please Enter Customer ("+(customerCounter+1)+") Name");
-        String name = input.nextLine();
-        customers[customerCounter]=name;
-        customerCounter++;
-        System.out.println("Customer Saved : "+ name);
+    public static void clearNewLine(){
+        input.nextLine();
+    }
 
+    //=========Customer management
+    public static void saveCustomer() {
+        System.out.println("Please Enter Customer (" + (customerCounter + 1) + ") Name");
+        String name = input.nextLine();
+        customers[customerCounter] = name;
+        customerCounter++;
+        System.out.println("Customer Saved : " + name);
+
+    }
+
+    public static void updateCustomer() {
+        System.out.println("Please Enter Customer Id");
+        int customerIndex = input.nextInt(); // \n
+        clearNewLine();
+
+        String customerName = customers[customerIndex];
+        if(customerName!=null){
+            System.out.println("Customer found and name is :"+ customerName);
+            System.out.println("Insert new Customer Name");
+
+            String tempName = input.nextLine();
+            customers[customerIndex]=tempName;
+            System.out.println("Customer Updated new name is : "+ tempName);
+        }else{
+            System.out.println("Customer Not Found!.");
+        }
     }
     //=========Customer management
 
@@ -45,24 +67,28 @@ class Initializer {
     public static void manageCustomer() {
         System.out.println("Manage your Customers");
 
-        while(true){
+        while (true) {
 
             System.out.println(Arrays.toString(customers));
 
             //------print Q------------
 
-            for(String temp: customerQ){
+            for (String temp : customerQ) {
                 System.out.println(temp);
             }
             //------print Q------------
 
             //input.nextLine();
             int num = input.nextInt(); // \n
-            input.nextLine();
+            clearNewLine();
 
-            switch (num){
-                case 1: saveCustomer(); break;
-                case 2: // update customer
+            switch (num) {
+                case 1:
+                    saveCustomer();
+                    break;
+                case 2:
+                    updateCustomer();
+                    break;
                 case 3: // delete customer
                 case 4: // search Customer
                 case 5: // back to home
@@ -95,7 +121,7 @@ class Initializer {
 
 
             int num = input.nextInt();
-            input.nextLine();
+            clearNewLine();
 
             switch (num) {
                 case 1:
