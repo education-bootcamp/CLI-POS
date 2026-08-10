@@ -2,6 +2,9 @@ import java.util.*;
 
 class Initializer {
     static Scanner input = new Scanner(System.in);
+    static String[] customers = new int[100]; //[[null],[null],[],[],[]]
+    static int customerCounter=0;
+
     static String[] customerQ= {
             "1) Save Customer",
             "2) Update Customer",
@@ -10,6 +13,13 @@ class Initializer {
             "5) Back",
             "6) Exit"
     };
+
+    //=========Customer management
+    public static void saveCustomer(){
+        System.out.println("Please Enter Customer ("+(customerCounter+1)+") Name");
+
+    }
+    //=========Customer management
 
     public static void printWelcomeNote() {
         System.out.println("===========================");
@@ -42,7 +52,7 @@ class Initializer {
             int num = input.nextInt();
 
             switch (num){
-                case 1: // save customer
+                case 1: saveCustomer(); break;
                 case 2: // update customer
                 case 3: // delete customer
                 case 4: // search Customer
