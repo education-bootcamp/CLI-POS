@@ -34,7 +34,7 @@ class Initializer {
         clearNewLine();
 
         String customerName = customers[customerIndex];
-        if(customerName!=null){
+        if(customerName!=null){ // null!=customerName
             System.out.println("Customer found and name is :"+ customerName);
             System.out.println("Insert new Customer Name");
 
