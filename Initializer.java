@@ -47,7 +47,7 @@ class Initializer {
         }
     }
 
-    public static void deleteCustomer(){
+    public static void deleteCustomer() {
         System.out.println("Please Enter Customer Id");
         int customerIndex = input.nextInt(); // \n
         customerIndex--; // dont insert 0
@@ -58,6 +58,23 @@ class Initializer {
             System.out.println("Customer Deleted : ");
         } else {
             System.out.println("Customer Not Found!.");
+        }
+    }
+
+    public static void searchCustomer() {
+        System.out.println("Please Enter searchText");
+        String searchText = input.nextLine(); // Ni
+        for (String tempName : customers) {
+            /*if (tempName!=null) {
+                if (tempName.contains(searchText)) {// nimal = ni
+                    System.out.println(tempName);
+                }
+            }*/
+
+            if (tempName!=null && tempName.contains(searchText)) {// nimal = ni
+                System.out.println(tempName);
+            }
+
         }
     }
     //=========Customer management
@@ -107,7 +124,9 @@ class Initializer {
                 case 3:
                     deleteCustomer();
                     break;
-                case 4: // search Customer
+                case 4:
+                    searchCustomer();
+                    break;
                 case 5: // back to home
                 case 6: // exit
                 default:
