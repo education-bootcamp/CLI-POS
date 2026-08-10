@@ -14,7 +14,7 @@ class Initializer {
             "6) Exit"
     };
 
-    public static void clearNewLine(){
+    public static void clearNewLine() {
         input.nextLine();
     }
 
@@ -31,17 +31,32 @@ class Initializer {
     public static void updateCustomer() {
         System.out.println("Please Enter Customer Id");
         int customerIndex = input.nextInt(); // \n
+        customerIndex--; // dont insert 0
         clearNewLine();
 
         String customerName = customers[customerIndex];
-        if(customerName!=null){ // null!=customerName
-            System.out.println("Customer found and name is :"+ customerName);
+        if (customerName != null) { // null!=customerName
+            System.out.println("Customer found and name is :" + customerName);
             System.out.println("Insert new Customer Name");
 
             String tempName = input.nextLine();
-            customers[customerIndex]=tempName;
-            System.out.println("Customer Updated new name is : "+ tempName);
-        }else{
+            customers[customerIndex] = tempName;
+            System.out.println("Customer Updated new name is : " + tempName);
+        } else {
+            System.out.println("Customer Not Found!.");
+        }
+    }
+
+    public static void deleteCustomer(){
+        System.out.println("Please Enter Customer Id");
+        int customerIndex = input.nextInt(); // \n
+        customerIndex--; // dont insert 0
+        clearNewLine();
+        String customerName = customers[customerIndex];
+        if (customerName != null) { // null!=customerName
+            customers[customerIndex] = null;
+            System.out.println("Customer Deleted : ");
+        } else {
             System.out.println("Customer Not Found!.");
         }
     }
@@ -89,7 +104,9 @@ class Initializer {
                 case 2:
                     updateCustomer();
                     break;
-                case 3: // delete customer
+                case 3:
+                    deleteCustomer();
+                    break;
                 case 4: // search Customer
                 case 5: // back to home
                 case 6: // exit
